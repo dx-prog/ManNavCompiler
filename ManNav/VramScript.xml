@@ -1,0 +1,42 @@
+﻿<script xmlns:signature="http://signature">
+  <styling signature:prefix="\G">
+    <define class="unary:operand" name="operand:int" signature="[\d]+" priority="100" type="operand">
+      <define class="unary:operand" name="operand:real" signature="\G\.\d+" priority="50" type="operand"/>
+      <define class="unary:operator" name="post:increment" signature="\G(\+\+)" priority="50"/>
+      <define class="unary:operator" name="post:decrement" signature="\G(\-\-)" priority="50"/>
+    </define>
+
+
+    <define class="binary:operator" name="pre:increment" signature="\+\+" priority="50"/>
+    <define class="binary:operator" name="pre:decrement" signature="\-\-" priority="50"/>
+
+    <define class="whitespace" name="whitespace" signature="\s+" priority="100" type="ignored"/>
+
+    <define class="unary:operator" name="ones complement" signature="~\b" priority="50"/>
+    <define class="unary:operator" name="negation" signature="!\b" priority="50"/>
+
+    <define class="unary:keyword" name="new" signature="\bnew\s" priority="50"/>
+    <define class="unary:keyword" name="delete" signature="\bdelete\s" priority="50"/>
+    <define class="unary:keyword" name="indexStart" signature="\[" priority="50"/>
+    <define class="unary:keyword" name="indexEnd" signature="\]" priority="50"/>
+
+    <define class="binary:operator" name="lperen" signature="\(" priority="40"/>
+    <define class="binary:operator" name="rperen" signature="\)" priority="40"/>
+
+    <define class="binary:operator" name="multiply" signature="[\*]" priority="30"/>
+    <define class="binary:operator" name="divide" signature="/" priority="30"/>
+
+    <define class="binary:operator" name="add" signature="\+" priority="20"/>
+    <define class="binary:operator" name="subtract" signature="\-" priority="20"/>
+
+    <define class="binary:operator" name="left shift" signature="&lt;&lt;" priority="15"/>
+    <define class="binary:operator" name="right shift" signature="&gt;&gt;" priority="15"/>
+
+    <define class="binary:logic" name="ref equals" signature="===" priority="8"/>
+    <define class="binary:logic" name="equals" signature="==" priority="8"/>
+    <define class="binary:logic" name="less than" signature="&lt;" priority="8"/>
+    <define class="binary:logic" name="less than equals" signature="&lt;=" priority="8"/>
+    <define class="binary:logic" name="greater than" signature="&gt;" priority="8"/>
+    <define class="binary:logic" name="greater than equals" signature="&gt;=" priority="8"/>
+  </styling>
+</script>
