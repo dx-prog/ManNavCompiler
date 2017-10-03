@@ -17,17 +17,33 @@
 * https://raw.githubusercontent.com/dx-prog/ManNavCompiler/master/LICENSE
 * *************************************************************/
 using System;
+using System.Linq.Expressions;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
+using ManNav.FoNative;
 using ManNav.Parser;
 
 namespace ManNav {
     internal class Program {
-        private static void Main(string[] args) {
-            var parser = new StandardParser();
+        private static unsafe void Main(string[] args) {
+          var parser = new StandardParser();
             parser.LoadScript(XDocument.Load(".\\vramscript.xml").ToString());
 
             foreach (var token in parser.Initialize().GetTokens("( ( 11.1+ 17.5++) * 23) / --4"))
                 Console.WriteLine("{0}[{1}]={2}", token.Name, token.Match?.Index, token.Text);
+           
+     
+
+
+            var tmp = NativeUnicodeString.FromManaged("hello");
+            
+            Console.WriteLine(tmp.Length);
+            Console.WriteLine(tmp.MaximumLength);
+            for (short i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine(tmp[i]);
+            }
         }
     }
 }
